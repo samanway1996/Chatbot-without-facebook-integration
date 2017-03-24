@@ -41,7 +41,11 @@ def makeWebhookResult(req):
         location = parameters.get("address1")
 
         speech = "our " + ngo[location] +  "  will be contacting you soon."
-
+    elif req.get("result").get("action") == "no.item" :
+        result = req.get("result")
+        parameters = result.get("parameters")
+        ngos= parameters.get(" NGOs")
+        speech = "our " + ngos +  "  will be contacting you soon."
     print("Response:")
     print(speech)
 
